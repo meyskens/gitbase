@@ -31,7 +31,8 @@ jobs:
             sudo apt-get update
             sudo apt-get install -y gcc g++-6
             wget https://dl.google.com/go/go1.11.linux-amd64.tar.gz
-            sudo tar -xvf go1.11.linux-amd64.tar.gz
+            sudo tar -xf go1.11.linux-amd64.tar.gz
+            sudo rm -rf /usr/local/go
             sudo mv go /usr/local
             sudo cp /usr/local/go/bin/* /usr/bin/
             sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-6 90
