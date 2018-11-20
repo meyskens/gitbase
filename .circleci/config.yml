@@ -28,10 +28,12 @@ jobs:
             sudo apt-get update
             sudo apt-get install build-essential software-properties-common -y
             sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y
-            sudo add-apt-repository ppa:gophers/archive -y
             sudo apt-get update
-            sudo apt-get install -y gcc g++-6 golang-1.10-go
-            sudo mv /usr/lib/go-1.10/bin/* /usr/bin/
+            sudo apt-get install -y gcc g++-6
+            wget https://dl.google.com/go/go1.11.linux-amd64.tar.gz
+            sudo tar -xvf go1.11.linux-amd64.tar.gz
+            sudo mv go /usr/local
+            sudo cp /usr/local/go/bin/* /usr/bin/
             sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-6 90
             sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-6 90
             docker run -d --name bblfshd --privileged -p 9432:9432 -v /var/lib/bblfshd:/var/lib/bblfshd bblfsh/bblfshd
