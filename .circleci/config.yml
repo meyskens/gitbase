@@ -20,7 +20,7 @@ jobs:
     ####   /go/src/bitbucket.org/circleci/go-tool
     working_directory: /go/src/github.com/src-d/gitbase
     steps:
-      - setup_remote_docker
+      #- setup_remote_docker
       - checkout
       - run: &install
           name: Install dependancies 
