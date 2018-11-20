@@ -30,7 +30,7 @@ jobs:
             sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y
             sudo add-apt-repository ppa:gophers/archive -y
             sudo apt-get update
-            sudo apt-get install -y gcc g++-6 PAgolang-1.10-go
+            sudo apt-get install -y gcc g++-6 golang-1.10-go
             sudo mv /usr/lib/go-1.10/bin/* /usr/bin/
             sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-6 90
             sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-6 90
