@@ -7,7 +7,7 @@ jobs:
     docker:
       # specify the version
       - image: circleci/golang:1.11
-      
+
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
       # documented at https://circleci.com/docs/2.0/circleci-images/
@@ -24,12 +24,12 @@ jobs:
       - run: &install
           name: Install dependancies 
           command: |
-          sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-6 90
-          sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-6 90
-          docker run -d --name bblfshd --privileged -p 9432:9432 -v /var/lib/bblfshd:/var/lib/bblfshd bblfsh/bblfshd
-          docker exec -it bblfshd bblfshctl driver install python bblfsh/python-driver
-          docker exec -it bblfshd bblfshctl driver install php bblfsh/php-driver
-          docker exec -it bblfshd bblfshctl driver install go bblfsh/go-driver
+            sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-6 90
+            sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-6 90
+            docker run -d --name bblfshd --privileged -p 9432:9432 -v /var/lib/bblfshd:/var/lib/bblfshd bblfsh/bblfshd
+            docker exec -it bblfshd bblfshctl driver install python bblfsh/python-driver
+            docker exec -it bblfshd bblfshctl driver install php bblfsh/php-driver
+            docker exec -it bblfshd bblfshctl driver install go bblfsh/go-driver
 
 
       # specify any bash command here prefixed with `run: `
