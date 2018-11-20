@@ -28,8 +28,9 @@ jobs:
             sudo apt-get update
             sudo apt-get install build-essential software-properties-common -y
             sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y
+            sudo add-apt-repository ppa:gophers/archive -y
             sudo apt-get update
-            sudo apt-get install -y gcc g++-6
+            sudo apt-get install -y gcc g++-6 golang-1.10-go
             sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-6 90
             sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-6 90
             docker run -d --name bblfshd --privileged -p 9432:9432 -v /var/lib/bblfshd:/var/lib/bblfshd bblfsh/bblfshd
@@ -41,4 +42,5 @@ jobs:
       # specify any bash command here prefixed with `run: `
       - run : pwd
       - run: ls
+      - run: go version
       - run: GOPATH=/home/circleci/go make test-coverage codecov
