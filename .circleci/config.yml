@@ -48,3 +48,15 @@ jobs:
       - run: ls
       - run: go version
       - run: GOPATH=/home/circleci/go make test-coverage codecov
+  test-mac:
+    macos:
+      xcode: "9.3.0"
+    working_directory: /home/circleci/go/src/github.com/src-d/gitbase
+    steps:
+      - checkout
+      - brew update
+      - run: make packages || echo "" # will fail because of docker being missing
+      - run: if [ ! -f "build/gitbase_darwin_amd64/gitbase" ]; then echo "gitbase binary not generated" && exit 1; fi
+      - run: cd build
+      - run: tar -cvzf "gitbase_${TRAVIS_TAG}_darwin_amd64.tar.gz" gitbase_darwin_amd64
+      - run: cd ..
