@@ -59,7 +59,7 @@ jobs:
       - run: make packages || echo "" # will fail because of docker being missing
       - run: if [ ! -f "build/gitbase_darwin_amd64/gitbase" ]; then echo "gitbase binary not generated" && exit 1; fi
       - run: cd build
-      - run: tar -cvzf "gitbase_${TRAVIS_TAG}_darwin_amd64.tar.gz" gitbase_darwin_amd64
+      - run: tar -cvzf "gitbase_darwin_amd64.tar.gz" gitbase_darwin_amd64
       - run: cd ..
 
 workflows:
