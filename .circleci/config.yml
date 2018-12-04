@@ -54,7 +54,7 @@ jobs:
     working_directory: /home/circleci/go/src/github.com/src-d/gitbase
     steps:
       - checkout
-      - brew update
+      - run: brew update
       - run: make packages || echo "" # will fail because of docker being missing
       - run: if [ ! -f "build/gitbase_darwin_amd64/gitbase" ]; then echo "gitbase binary not generated" && exit 1; fi
       - run: cd build
